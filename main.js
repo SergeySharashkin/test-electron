@@ -1,4 +1,5 @@
 // Modules to control application life and create native browser window
+import defaultExport from "components";
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 

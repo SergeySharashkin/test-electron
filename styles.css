@@ -1,3 +1,222 @@
 /* styles.css */
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}
+img {
+  display: block;
+}
+body {
+  background-color: rgb(58, 56, 56);
+  overflow: hidden;
+}
+.main-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.accounts-container {
+  width: 8%;
+  height: 100vh;
+
+  background-color: rgb(85, 81, 81);
+  overflow: scroll;
+  display: flex;
+align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  
+}
+.accounts-container::-webkit-scrollbar {
+  width: 0px; /* ширина для вертикального скролла */
+  height: 0px; /* высота для горизонтального скролла */
+  background-color: #143861;
+}
+
+/* ползунок скроллбара */
+.accounts-container::-webkit-scrollbar-thumb {
+  background-color: #843465;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #131a17;
+}
+
+.accounts-container::-webkit-scrollbar-thumb:hover {
+  background-color: #111214;
+}
+.account-card {
+  margin-bottom: 20px;
+  border-radius: 50%;
+  padding: 0px;
+  position: relative;
+  
+}
+.account-card:last-child {
+  margin-bottom: 0px;
+}
+.account-card.account-card-current {
+    color: #2196f3;
+  }
+  
+  .account-card.account-card-current::after {
+    content: "";
+    bottom: 0;
+    left: -10px;
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    border-radius: 4px;
+    background-color: #1f2931;
+  }
+  
+  /* .menu__nav-link:hover, .menu__nav-link:focus {
+    color: #2196f3;
+  } */
+/* .account-name {
+margin-bottom: 20px;
+
+} */
+.account-add { background-color: rgb(25, 25, 32);
+    outline: none;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.account-image-new {
+    width: 30px;
+    height: 30px;
+}
+.account-icon {
+  fill: black;
+  width: 50px;
+}
+.account-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.groups-container {
+  width: 20%;
+  height: 100%;
+  outline: rgb(218, 26, 26);
+  display: flex;
+  flex-direction: column;
+}
+.content-container {
+  width: 50%;
+  height: 100%;
+  outline: rgb(218, 26, 26);
+}
+.people-container {
+  width: 20%;
+  height: 100vh;
+  /* outline:  2px solid rgb(218, 26, 26); */
+  background-color: rgb(85, 81, 81);
+  overflow: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.people-container::-webkit-scrollbar {
+  width: 8px; /* ширина для вертикального скролла */
+  height: 0px; /* высота для горизонтального скролла */
+  background-color: #143861;
+}
+
+/* ползунок скроллбара */
+.people-container::-webkit-scrollbar-thumb {
+  background-color: #843465;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #131a17;
+}
+
+.people-container::-webkit-scrollbar-thumb:hover {
+  background-color: #111214;
+}
+.online .ofline {
+  display: flex;
+}
+.people-card {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+
+  padding: 5px 20px;
+
+  font-size: 16px;
+  color: cornsilk;
+}
+.people-tittel {
+  margin: 0;
+  font-size: 16px;
+  display: block;
+  color: cornsilk;
+}
+.people-image {
+  /* margin-left: auto; */
+  width: 10%;
+  /* height: 2vw; */
+  border-radius: 1vw;
+}
 
 /* Add styles here to customize the appearance of your app */
+/* button.accordion {
+    width: 250px;
+} */
+.accordion {
+  width: 180px;
+  background-color: rgb(27, 27, 43);
+  cursor: pointer;
+  color: ghostwhite;
+  /* padding: 20px 5px; */
+
+  /* border: none;
+    outline: none; */
+  font-size: 16px;
+  transition: 0.5s;
+}
+
+.active,
+.accordion:hover {
+  background-color: #50210d;
+}
+
+.accordion:after {
+  content: "\002B";
+  /* color: #fff; */
+  font-size: 18px;
+  font-weight: bold;
+  float: right;
+  margin-left: 80px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  /* padding: 0 18px;
+  color: #212121; */
+  /* background-color: #fff; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
