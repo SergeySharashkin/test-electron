@@ -267,6 +267,7 @@ align-items: center;
   overflow: scroll;
   display: flex;
   flex-wrap: nowrap;
+  position: relative;
 }
 .people-container::-webkit-scrollbar {
   width: 3px; /* ширина для вертикального скролла */
@@ -284,10 +285,9 @@ align-items: center;
 .people-container::-webkit-scrollbar-thumb:hover {
   background-color: #111214;
 }
-/* .online  {
-  display: flex;
-  align-self: stretch;
-} */
+.online, .ofline{
+  position: relative;
+}
 .people-card {
   display: flex;
   flex-wrap: nowrap;
@@ -300,6 +300,7 @@ cursor: pointer;
 
   font-size: 16px;
   color: cornsilk;
+  
 }
 .people-card.people-current{
   color: rgb(3, 32, 58);
@@ -312,12 +313,19 @@ cursor: pointer;
 }
 .people-image {
   /* margin-left: auto; */
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   /* height: 2vw; */
   border-radius: 50%;
 }
-
+.people-image:hover {
+width: 100px;
+height: 100px;
+position:fixed;
+z-index: 10;
+/* top: 50%;
+left: 50%; */
+}
 /* Add styles here to customize the appearance of your app */
 /* button.accordion {
     width: 250px;
