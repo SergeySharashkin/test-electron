@@ -6,11 +6,12 @@ import{dataGroups} from "../data/groups.js";
 // const template = Handlebars.compile("peopleTpl");
 
 // import { dataAccount } from "../data/accounts"
-console.log(dataPeople);
+
 const refs = {
   accounts: document.querySelector("#accounts"),
   peopleOnline: document.querySelector("#online-people"),
   peopleOfline: document.querySelector("#ofline-people"),
+  people: document.querySelector("#people"),
   money: document.querySelector("#money"),
   muvie: document.querySelector("#muvie"),
   present: document.querySelector("#present"),
@@ -117,4 +118,17 @@ function createGroupsMarkup(dataGroups, status) {
     </li>`;
     })
     .join("");
+}
+refs.people.addEventListener("click", onPeopleClick);
+function onPeopleClick(e) {
+  if (e.target.nodeName!=='LI'&&'P'&&'IMG') {
+      console.log(e.target.nodeName)
+    return;
+  }
+  const currentPiople = document.querySelector(".people-current");
+  if (currentPiople) {
+    currentPiople.classList.remove("people-current");
+  }
+  e.target.classList.add("people-current");
+  //   console.log("aaa");
 }
