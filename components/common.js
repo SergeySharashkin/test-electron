@@ -121,7 +121,7 @@ function createGroupsMarkup(dataGroups, status) {
 }
 refs.people.addEventListener("click", onPeopleClick);
 function onPeopleClick(e) {
-  if (e.target.nodeName!=='LI'&&'P'&&'IMG') {
+  if (e.target.nodeName!=='LI') {
       console.log(e.target.nodeName)
     return;
   }
