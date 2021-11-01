@@ -5,12 +5,19 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' ; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; img-src 'self'"
+      content="default-src 'self' 'unsafe-inline'; 
+      script-src 'self' 'unsafe-inline'; 
+      img-src 'self' 'unsafe-inline'"
     />
     <link href="./styles.css" rel="stylesheet" />
     <title>Sharashkin App</title>
   </head>
   <body>
+    <header class="frame" id="frame-content">
+      <div class="option" id="minimize">-</div>
+      <div class="option" id="close">x</div>
+    </header>
+
     <section class="main-section">
       <div class="accounts-container" id="accounts">
         <button class="account-add">
@@ -19,14 +26,33 @@
       </div>
       <div class="groups-container" id="groups">
         <ul>
-          dd
+          <li class="groupe">
+            <button class="accordion">money</button>
+            <ul id="money" class="panel"></ul>
+          </li>
+          <li class="groupe">
+            <button class="accordion">muvie</button>
+            <ul id="muvie" class="panel"></ul>
+          </li>
+          <li class="groupe">
+            <button class="accordion">present</button>
+            <ul id="present" class="panel"></ul>
+          </li>
+          <li class="groupe">
+            <button class="accordion">funny</button>
+            <ul id="funny" class="panel"></ul>
+          </li>
+          <li class="groupe">
+            <button class="accordion">music</button>
+            <ul id="music" class="panel"></ul>
+          </li>
         </ul>
       </div>
       <div class="content-container" id="content">ff</div>
       <div class="people-container" id="people">
         <ul>
           <li class="online">
-            <button class="accordion" toggle="true">online</button>
+            <button class="accordion">online</button>
             <ul id="online-people" class="panel"></ul>
           </li>
           <li class="ofline">
@@ -42,6 +68,15 @@
     and Electron <span id="electron-version"></span>. -->
 
     <!-- You can also require other files to run in this process -->
+    <script>
+      document
+        .getElementById("close")
+        .addEventListener("click", () => this.window.close());
+      document
+        .getElementById("minimize")
+        .addEventListener("click", () => this.window.minimize());
+    </script>
+
     <script
       src="./components/common.js"
       type="module"

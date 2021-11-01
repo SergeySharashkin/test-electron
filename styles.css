@@ -6,6 +6,9 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
 }
 
 li {
@@ -18,25 +21,59 @@ img {
 body {
   background-color: rgb(58, 56, 56);
   overflow: hidden;
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.6),
+      rgba(47, 48, 58, 0.6)
+    ),
+    url("./img/4.jpg");
+  padding: 0;
+  background-size: cover;
+}
+.frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  color: aliceblue;
+  align-self: stretch;
+  margin-bottom: 5px;
+  padding: 0;
+  -webkit-app-region: drag;
+}
+.option {
+  color: aliceblue;
+  font-size: 16px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 20px;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  -webkit-user-select: none;
+}
+.option:hover {
+  background-color: rgba(0, 0, 0, 0.445);
 }
 .main-section {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
 }
 .accounts-container {
   width: 8%;
-  height: 100vh;
+  height: 90vh;
 
-  background-color: rgb(85, 81, 81);
+  background-color: rgba(85, 81, 81, 0.418);
   overflow: scroll;
   display: flex;
-align-items: center;
+  align-items: center;
   flex-direction: column;
   justify-content: start;
-  
 }
 .accounts-container::-webkit-scrollbar {
   width: 0px; /* ширина для вертикального скролла */
@@ -57,86 +94,184 @@ align-items: center;
 .account-card {
   margin-bottom: 20px;
   border-radius: 50%;
+  border: 0px solid;
   padding: 0px;
   position: relative;
-  
+  /* z-index: 10; */
+  width: 50px;
+  height: 50px;
+  /* background-color: rgba(0, 0, 255, 0.521); */
+  background-position: center;
+  /* background-origin:border-box;
+  background-repeat: no-repeat; */
+  background-size: cover;
+  /* background-image: './img/1.jpeg'; */
+  transition: 0.2s;
+}
+.account-card:hover {
+  width: 55px;
+  height: 55px;
 }
 .account-card:last-child {
   margin-bottom: 0px;
 }
 .account-card.account-card-current {
-    color: #2196f3;
-  }
-  
-  .account-card.account-card-current::after {
-    content: "";
-    bottom: 0;
-    left: -10px;
-    position: absolute;
-    width: 4px;
-    height: 100%;
-    border-radius: 4px;
-    background-color: #1f2931;
-  }
-  
-  /* .menu__nav-link:hover, .menu__nav-link:focus {
+  border: 2px solid #97c3dda8;
+  /* background-image: linear-gradient(right, 0, 0);  */
+}
+
+.account-card.account-card-current::after {
+  content: "";
+  bottom: 0;
+  left: -11px;
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px;
+  background-color: rgba(141, 149, 156, 0.637);
+}
+.account-card.account-card-current:hover::after {
+  left: -7px;
+  width: 2px;
+}
+
+/* .menu__nav-link:hover, .menu__nav-link:focus {
     color: #2196f3;
   } */
 /* .account-name {
 margin-bottom: 20px;
 
 } */
-.account-add { background-color: rgb(25, 25, 32);
-    outline: none;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.account-image-new {
-    width: 30px;
-    height: 30px;
-}
-.account-icon {
-  fill: black;
-  width: 50px;
-}
-.account-image {
-  width: 60px;
-  height: 60px;
+.account-add {
+  background-color: rgba(202, 113, 29, 0.13);
+  outline: none;
   border-radius: 50%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.account-add:hover {
+  width: 55px;
+  height: 55px;
+  background-color: rgba(95, 92, 92, 0.63);
+}
+.account-image-new {
+  width: 30px;
+  height: 30px;
+}
+
+/* .account-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  z-index: -1;
+} */
 .groups-container {
   width: 20%;
-  height: 100%;
-  outline: rgb(218, 26, 26);
+  /* height: 100%; */
+  height: 90vh;
+  /* outline:  2px solid rgb(218, 26, 26); */
+  background-color: rgba(85, 81, 81, 0.418);
+  color: aliceblue;
+  overflow: scroll;
   display: flex;
-  flex-direction: column;
+  flex-wrap: nowrap;
 }
+.groups-container::-webkit-scrollbar {
+  width: 4px; /* ширина для вертикального скролла */
+  height: 0px; /* высота для горизонтального скролла */
+  background-color: #1a447538;
+}
+
+/* ползунок скроллбара */
+.groups-container::-webkit-scrollbar-thumb {
+  background-color: #843465;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #131a17;
+}
+
+.group-container::-webkit-scrollbar-thumb:hover {
+  background-color: #111214;
+}
+.group-card {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+
+  padding: 5px 10px 5px 20px;
+
+  font-size: 16px;
+  /* color: rgba(10, 10, 7, 0.678); */
+}
+.group-tittel {
+  margin: 0;
+  font-size: 14px;
+  display: block;
+  /* color: rgb(14, 13, 9); */
+}
+.account-img-contain {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  background: linear-gradient(to right, rgb(233, 184, 184), rgb(211, 174, 174));
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.group-image {
+  /* margin-left: auto; */
+  width: 12px;
+  background-size: 90%; /* height: 2vw; */
+  border-radius: 50%;
+  fill: blanchedalmond;
+  color: blanchedalmond;
+  background-color: blanchedalmond;
+}
+
 .content-container {
   width: 50%;
-  height: 100%;
-  outline: rgb(218, 26, 26);
+  height: 90vh;
+  background-color: rgba(85, 81, 81, 0.418);
+  overflow: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.content-container::-webkit-scrollbar {
+  width: 3px; /* ширина для вертикального скролла */
+  height: 0px; /* высота для горизонтального скролла */
+  background-color: #1a447538;
+}
+
+/* ползунок скроллбара */
+.content-container::-webkit-scrollbar-thumb {
+  background-color: #843465;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #131a17;
+}
+
+.content-container::-webkit-scrollbar-thumb:hover {
+  background-color: #111214;
 }
 .people-container {
   width: 20%;
-  height: 100vh;
+  height: 90vh;
   /* outline:  2px solid rgb(218, 26, 26); */
-  background-color: rgb(85, 81, 81);
+  background-color: rgba(85, 81, 81, 0.418);
   overflow: scroll;
   display: flex;
   flex-wrap: nowrap;
 }
 .people-container::-webkit-scrollbar {
-  width: 8px; /* ширина для вертикального скролла */
+  width: 3px; /* ширина для вертикального скролла */
   height: 0px; /* высота для горизонтального скролла */
-  background-color: #143861;
+  background-color: #1a447538;
 }
 
 /* ползунок скроллбара */
@@ -149,17 +284,19 @@ margin-bottom: 20px;
 .people-container::-webkit-scrollbar-thumb:hover {
   background-color: #111214;
 }
-.online .ofline {
+/* .online  {
   display: flex;
-}
+  align-self: stretch;
+} */
 .people-card {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
+  align-self: stretch;
 
-  padding: 5px 20px;
+  padding: 5px 10px 5px 20px;
 
   font-size: 16px;
   color: cornsilk;
@@ -172,9 +309,10 @@ margin-bottom: 20px;
 }
 .people-image {
   /* margin-left: auto; */
-  width: 10%;
+  width: 15px;
+  height: 15px;
   /* height: 2vw; */
-  border-radius: 1vw;
+  border-radius: 50%;
 }
 
 /* Add styles here to customize the appearance of your app */
@@ -182,21 +320,25 @@ margin-bottom: 20px;
     width: 250px;
 } */
 .accordion {
-  width: 180px;
-  background-color: rgb(27, 27, 43);
+  width: 155px;
+  background-color: rgba(51, 51, 54, 0.808);
   cursor: pointer;
-  color: ghostwhite;
+  color: aliceblue;
   /* padding: 20px 5px; */
-
-  /* border: none;
-    outline: none; */
-  font-size: 16px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 15px;
   transition: 0.5s;
+  position: relative;
+  text-align: start;
+  display: flex;
+  align-self: stretch;
 }
 
 .active,
 .accordion:hover {
-  background-color: #50210d;
+  background-color: #31302f;
 }
 
 .accordion:after {
@@ -205,7 +347,8 @@ margin-bottom: 20px;
   font-size: 18px;
   font-weight: bold;
   float: right;
-  margin-left: 80px;
+  position: absolute;
+  right: 5px;
 }
 
 .active:after {
@@ -218,5 +361,5 @@ margin-bottom: 20px;
   /* background-color: #fff; */
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.2s ease-out;
 }

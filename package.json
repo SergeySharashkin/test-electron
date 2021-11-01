@@ -20,6 +20,6 @@
     "electron": "^15.3.0"
   },
   "dependencies": {
-    "handlebars": "^4.7.7"
+    "@electron/remote": "^2.0.1"
   }
 }
